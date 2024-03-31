@@ -13,8 +13,9 @@ int main(int argc, char *argv[])
         fprintf(stderr, "사용법: %s 파일이름\n", argv[0]);
         exit(1);
     }
-    if ((fp=fopen(argv[1], "rb")) == NULL) {
-        fprint(stderr, "파일 열기 오류\n");
+    if ((fp = fopen(argv[1], "rb")) == NULL) 
+    {
+        fprintf(stderr, "파일 열기 오류\n");
         exit(2);
     }
     do {

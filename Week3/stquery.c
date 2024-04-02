@@ -10,24 +10,24 @@ int main(int argc, char *argv[])
     int id;
     FILE *fp;
     if (argc != 2) {
-        fprintf(stderr, "ì‚¬ìš©ë²•: %s íŒŒì¼ì´ë¦„\n", argv[0]);
+        fprintf(stderr, "»ç¿ë¹ı: %s ÆÄÀÏÀÌ¸§\n", argv[0]);
         exit(1);
     }
     if ((fp = fopen(argv[1], "rb")) == NULL) 
     {
-        fprintf(stderr, "íŒŒì¼ ì—´ê¸° ì˜¤ë¥˜\n");
+        fprintf(stderr, "ÆÄÀÏ ¿­±â ¿À·ù\n");
         exit(2);
     }
     do {
-        printf("ê²€ìƒ‰í•  í•™ìƒì˜ í•™ë²ˆ ì…ë ¥: ");
+        printf("°Ë»öÇÒ ÇĞ»ıÀÇ ÇĞ¹ø ÀÔ·Â: ");
         if (scanf("%d", &id) == 1) {
             fseek(fp, (id - START_ID) *sizeof(rec), SEEK_SET);
             if ((fread(&rec, sizeof(rec), 1, fp) > 0) && (rec.id != 0)) {
-                printf("í•™ë²ˆ: %8d ì´ë¦„: %4s\n", rec.id, rec.name, rec.score);
+                printf("ÇĞ¹ø: %8d ÀÌ¸§: %4s\n", rec.id, rec.name, rec.score);
             }
-            else printf("ë ˆì½”ë“œ %d ì—†ìŒ\n", id);
+            else printf("·¹ÄÚµå %d ¾øÀ½\n", id);
 
-            printf("ê³„ì†í•˜ê² ìŠµë‹ˆê¹Œ?(Y/N)");
+            printf("°è¼ÓÇÏ°Ú½À´Ï±î?(Y/N)");
             scanf(" %c", &c);
         } 
     } while (c == 'Y');

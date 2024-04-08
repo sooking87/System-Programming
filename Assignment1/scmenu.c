@@ -22,7 +22,7 @@ int listdb(char* filename) {
     }
     printf("-----------------------------------\n");
     close(fd);
-    return 0;
+    return 0; 
 }
 
 /* 학번을 입력받아 해당 학생의 레코드를 파일에서 읽어 출력한다. */
@@ -40,7 +40,7 @@ int querydb(char * filename){
         if (scanf("%d", &id) == 1) {
             lseek(fd, (id - START_ID) * sizeof(rec), SEEK_SET);
             if ((read(fd, &rec, sizeof(rec)) > 0) && (rec.id != 0)) {
-                printf("학번: %8d 이름: %4s 점수: %4d\n", rec.id, rec.name, rec.score);
+                printf("학번: %-8d 이름: %-4s 점수: %-4d\n", rec.id, rec.name, rec.score);
             } else {
                 printf("레코드 %d 없음\n", id);
             }

@@ -93,7 +93,7 @@ int insertdb(char * filename){
     struct student rec;
     int fd;
     char c;
-    if ((fd = open(filename, O_RDWR | O_CREAT, 0644)) == -1) {
+    if ((fd = open(filename, O_RDWR | O_CREAT, 0600)) == -1) {
         perror("파일 열기 오류");
         return 1;
     }

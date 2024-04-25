@@ -26,6 +26,7 @@ int main(int argc, char *argv[]) {
     c = getc(fp); // 파일로부터 문자 읽기
     while (c != EOF) { // 파일 끝이 아닐 동안 반복문 실행
         putc(c, stdout); // 읽은 문자를 표준출력에 출력
+        putc('\n', stdout);
         c = getc(fp); // 파일로부터 문자 읽기
     }
 

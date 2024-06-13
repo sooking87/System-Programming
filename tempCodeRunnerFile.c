@@ -1,8 +1,6 @@
-FILE *fd;
-    if ((fd = creat("./myfile", 0600)) == -1) {
-        perror("./myfile");
+if (fork() == 0) {
+        printf("Hello pid=%d\n", getpid(), getppid());
     }
-    write(fd, "Hello! Linux", 12);
-    dup2(1, fd);
-    write(fd, "Bye! Linux", 10);
-    exit(0);
+    if (fork() == 0) {
+        printf("Good morning pid=%d\n", getpid(), getppid());
+    }
